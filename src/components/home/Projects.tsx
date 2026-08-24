@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Suspense } from "react";
 import ProjectSkeleton from "./ProjectSkeleton";
 import * as motion from "motion/react-client";
@@ -27,11 +26,6 @@ export default function Projects() {
             <span className="text-[10px] w-full hidden lg:block text-primary-container pb-1 border-b text-right">
               COORD: 40.7128° N <br />
               LOC: DEV_NODE_01
-            </span>
-            <span>
-              <Link href="/blog" className="text-[10px] text-primary-container">
-                VIEW_ALL
-              </Link>
             </span>
           </div>
         </div>

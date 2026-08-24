@@ -43,7 +43,7 @@ No typecheck script. No test framework detected.
 
 ```
 src/
-  app/            # App Router pages (layout.tsx, page.tsx, blog/page.tsx)
+  app/            # App Router pages (layout.tsx, page.tsx)
   components/
     layouts/      # Navbar, Footer
     home/         # Hero, Projects, SkillStack, etc.
@@ -53,7 +53,6 @@ src/
 
 - Root layout renders `<Navbar />` + `<main>` + `<Footer />` around children.
 - Home page orders: Hero → Projects → SkillStack → ContactMe.
-- Blog is a stub page (`/blog`).
 - `next.config.mjs`: `cacheComponents: true`, `allowedDevOrigins: ["192.168.31.200"]`.
 - `.env.local` requires: `NEXT_PUBLIC_FORMSPREE_KEY`, `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY`.
 

@@ -128,15 +128,6 @@ export default function Navbar() {
               /Contact
             </motion.p>
           </NavbarActiveLink>
-          <NavbarActiveLink href="/blog">
-            <motion.p
-              whileHover={{ scale: 1.1 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              onClick={() => setIsOpen(false)}
-            >
-              /Blog
-            </motion.p>
-          </NavbarActiveLink>
         </ul>
       </motion.div>
     </motion.nav>
