@@ -8,7 +8,7 @@ interface ProjectItemsProps {
   skills: string[];
   dev_area: string;
   isLarge: boolean;
-  id: string;
+  index: number;
 }
 
 export default function ProjectItems({
@@ -16,13 +16,13 @@ export default function ProjectItems({
   description,
   skills,
   dev_area,
-  id,
+  index,
   isLarge,
 }: ProjectItemsProps) {
   return (
     <motion.article
       className={`min-h-70 sm:min-h-sm bg-[#1B1B20] border-t-4 border-[#35343A] flex justify-around p-4 sm:p-6 shadow-lg backdrop-blur-sm hover:border-primary transition-all ${isLarge ? "lg:col-span-2" : ""}`}
-      initial={id % 2 == 0 ? { x: -50, opacity: 0 } : { x: 50, opacity: 0 }}
+      initial={index % 2 == 0 ? { x: -50, opacity: 0 } : { x: 50, opacity: 0 }}
       transition={{ duration: 0.4, ease: "easeInOut" }}
       whileInView={{ x: 0, opacity: 1 }}
     >

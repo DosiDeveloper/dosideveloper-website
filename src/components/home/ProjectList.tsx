@@ -53,7 +53,7 @@ export default async function ProjectList() {
       {parsedProjects.map((project, index) => (
         <ProjectItems
           key={project.id}
-          id={project.id}
+          index={index}
           title={project.name}
           description={project.description}
           skills={project.skills}

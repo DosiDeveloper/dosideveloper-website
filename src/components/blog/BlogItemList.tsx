@@ -1,10 +1,10 @@
 interface BlogItem {
-  description: string;
-  devarea: string;
-  skills: string;
-  created_at: string;
-  updated_at: string;
-  name: string;
+  description: string | null;
+  devarea: string | null;
+  skills: string | null;
+  created_at: string | null;
+  updated_at: string | null;
+  name: string | null;
 }
 
 export default function BlogItemList({
