@@ -10,16 +10,16 @@ Portfolio site for Douglas Barreto (software engineer). Next.js 16.2.1 App Route
 
 ## Package manager
 
-- **pnpm** — do not use npm or yarn.
+- **npm** — do not use pnpm or yarn.
 
 ## Commands
 
 | Command | What |
 |---|---|
-| `pnpm dev` | Dev server (http://localhost:3000) |
-| `pnpm build` | Production build |
-| `pnpm start` | Start production server |
-| `pnpm lint` | ESLint (flat config in `eslint.config.mjs`) |
+| `npm run dev` | Dev server (http://localhost:3000) |
+| `npm run build` | Production build |
+| `npm run start` | Start production server |
+| `npm run lint` | ESLint (flat config in `eslint.config.mjs`) |
 
 No typecheck script. No test framework detected.
 

@@ -26,5 +26,9 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "supabase": "^2.98.2",
     "tailwindcss": "^4"
+  },
+  "allowScripts": {
+    "sharp@0.34.5": true,
+    "unrs-resolver@1.12.2": true
   }
 }
