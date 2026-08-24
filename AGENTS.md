@@ -59,6 +59,6 @@ src/
 ## Conventions
 
 - Components prefer `motion/react-client` for scroll/viewport animations. Some server components use it without `"use client"` — follow the existing pattern per component.
-- `"use cache"` + `cacheLife()` for data fetching in async server components (Projects page).
+- Data fetching is CSR: client components fetch Supabase in `useEffect` (Projects page), with skeleton loading state.
 - Tailwind v4: CSS-based theme via `@theme inline` block in `globals.css`. No `tailwind.config.*` file.
 - `eslint.config.mjs`: extends `eslint-config-next/core-web-vitals`, disables `react-hooks/set-state-in-effect`.

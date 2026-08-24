@@ -1,14 +1,50 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { supabase } from "@/utils/supabase";
 import ProjectItems from "./ProjectItems";
+import ProjectSkeleton from "./ProjectSkeleton";
 
-export default async function ProjectList() {
-  const { data: projects, error } = await supabase
-    .from("post_metadata")
-    .select("name, description, skills, devarea, id")
-    .limit(5)
-    .order("created_at", { ascending: false });
+interface Project {
+  id: string;
+  name: string;
+  description: string;
+  devarea: string;
+  skills: string[];
+}
 
-  if (error) {
+export default function ProjectList() {
+  const [projects, setProjects] = useState<Project[] | null>(null);
+  const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const { data, error } = await supabase
+        .from("post_metadata")
+        .select("name, description, skills, devarea, id")
+        .limit(5)
+        .order("created_at", { ascending: false });
+
+      if (error || !data) {
+        setHasError(true);
+        return;
+      }
+
+      setProjects(
+        data.map((p) => ({
+          id: p.id ?? "",
+          name: p.name ?? "",
+          description: p.description ?? "",
+          devarea: p.devarea ?? "",
+          skills: (p.skills ?? "").split(",").filter(Boolean),
+        })),
+      );
+    };
+
+    fetchProjects();
+  }, []);
+
+  if (hasError) {
     return (
       <div className="col-span-full bg-[#1B1B20] flex flex-col gap-3 items-center justify-center py-20 text-primary-container">
         <span className="text-xl">ERR_CONNECTION_FAILED</span>
@@ -25,7 +61,17 @@ export default async function ProjectList() {
     );
   }
 
-  if (!projects || projects.length === 0) {
+  if (!projects) {
+    return (
+      <>
+        {Array.from({ length: 4 }).map((_, index) => (
+          <ProjectSkeleton key={index} isLarge={index % 3 === 0} />
+        ))}
+      </>
+    );
+  }
+
+  if (projects.length === 0) {
     return (
       <div className="col-span-full flex flex-col items-center justify-center py-20 text-primary-container">
         <span className="text-[10px]">NO_DATA</span>
@@ -40,17 +86,9 @@ export default async function ProjectList() {
     );
   }
 
-  const parsedProjects = projects.map((p) => ({
-    id: p.id ?? "",
-    name: p.name ?? "",
-    description: p.description ?? "",
-    devarea: p.devarea ?? "",
-    skills: (p.skills ?? "").split(",").filter(Boolean),
-  }));
-
   return (
     <>
-      {parsedProjects.map((project, index) => (
+      {projects.map((project, index) => (
         <ProjectItems
           key={project.id}
           index={index}

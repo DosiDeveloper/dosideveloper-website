@@ -1,5 +1,3 @@
-import { Suspense } from "react";
-import ProjectSkeleton from "./ProjectSkeleton";
 import * as motion from "motion/react-client";
 import ProjectList from "./ProjectList";
 
@@ -45,22 +43,7 @@ export default function Projects() {
         }}
         className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 w-full"
       >
-        <Suspense
-          fallback={
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              {Array.from({ length: 4 }).map((_, index) => (
-                <ProjectSkeleton key={index} isLarge={index % 3 === 0} />
-              ))}
-            </motion.div>
-          }
-        >
-          <ProjectList />
-        </Suspense>
+        <ProjectList />
       </motion.section>
     </section>
   );
