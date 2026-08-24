@@ -8,7 +8,7 @@ interface ProjectItemsProps {
   skills: string[];
   dev_area: string;
   isLarge: boolean;
-  id: number;
+  id: string;
 }
 
 export default function ProjectItems({
