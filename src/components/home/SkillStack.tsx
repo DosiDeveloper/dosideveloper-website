@@ -1,6 +1,7 @@
 "use client";
 import StackItem from "@/components/home/StackItem";
-import { stagger, motion } from "motion/react";
+import { stagger } from "motion/react";
+import * as motion from "motion/react-client";
 
 const container = {
   hidden: {
@@ -47,20 +48,20 @@ export default function TechnologyStack() {
               "react.js",
               "next.js",
               "tailwindcss",
-              "django",
-              "fastapi",
+              "nestjs",
             ]}
           />
           <StackItem
             title="SYSTEM_ARCHITECTURE"
-            percentage="65%"
+            percentage="45%"
             languages={["docker", "ci-cd", "rust"]}
           />
           <StackItem
             title="MOBILE_DEVELOPMENT"
             percentage="45%"
-            languages={["dart", "flutter", "kotlin"]}
+            languages={["dart", "flutter"]}
           />
+          <StackItem title="DATA_SCIENCE" percentage="20%" languages={['python', 'pandas', 'streamlit', 'plotly', ]}/>
         </motion.div>
       </section>
     </section>

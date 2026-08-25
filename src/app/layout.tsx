@@ -7,7 +7,7 @@ import { Inter, Fira_Code, Space_Grotesk } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-display",
+  variable: "--font-body",
   fallback: ["Inter", "sans-serif"],
 });
 const firaCode = Fira_Code({
