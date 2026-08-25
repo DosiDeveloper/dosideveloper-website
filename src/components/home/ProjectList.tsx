@@ -86,9 +86,22 @@ export default function ProjectList() {
     );
   }
 
+  const placeholders: Project[] =
+    projects.length < 4
+      ? Array.from({ length: 4 - projects.length }, (_, i) => ({
+          id: `placeholder-${i}`,
+          name: "More projects are coming soon",
+          description: "The projects are in the oven",
+          devarea: "",
+          skills: [],
+        }))
+      : [];
+
+  const displayProjects = [...projects, ...placeholders];
+
   return (
     <>
-      {projects.map((project, index) => (
+      {displayProjects.map((project, index) => (
         <ProjectItems
           key={project.id}
           index={index}

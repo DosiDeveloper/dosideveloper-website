@@ -42,13 +42,16 @@ export default function ProjectItems({
             {description}
           </p>
         </header>
-        <footer className="mb-3 inline-flex flex-wrap items-center gap-2 text-xs text-primary-container/70 capitalize">
-          {skills?.length > 0 &&
-            skills.map((lang, index) => (
-              <span key={lang} className="px-2 py-1 border">
-                {lang}
-              </span>
-            ))}
+        <footer className="mb-3 inline-flex flex-wrap gap-3">
+          {skills?.length > 0 && (
+            <div className="inline-flex flex-wrap items-center gap-2 text-xs text-primary-container/70 capitalize">
+              {skills.map((lang, index) => (
+                <span key={index} className="px-2 py-1 border">
+                  {lang}
+                </span>
+              ))}
+            </div>
+          )}
         </footer>
       </div>
       {isLarge && (
