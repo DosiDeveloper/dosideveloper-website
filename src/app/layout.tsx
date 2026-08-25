@@ -1,4 +1,5 @@
 import Footer from "@/components/layouts/Footer";
+import { Analytics } from "@vercel/analytics/next";
 import Navbar from "@/components/layouts/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
@@ -48,6 +49,7 @@ export default function RootLayout({
           className="min-h-full max-w-dvw flex flex-col items-center gap-30 md:gap-10 text-white overflow-hidden hud-grid"
         >
           {children}
+          <Analytics />
         </main>
         <Footer />
       </body>
