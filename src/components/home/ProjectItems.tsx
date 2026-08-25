@@ -9,6 +9,7 @@ interface ProjectItemsProps {
   dev_area: string;
   isLarge: boolean;
   index: number;
+  gh_url?: string;
 }
 
 export default function ProjectItems({
@@ -18,6 +19,7 @@ export default function ProjectItems({
   dev_area,
   index,
   isLarge,
+  gh_url,
 }: ProjectItemsProps) {
   return (
     <motion.article
@@ -42,7 +44,7 @@ export default function ProjectItems({
             {description}
           </p>
         </header>
-        <footer className="mb-3 inline-flex flex-wrap gap-3">
+        <footer className="mb-3 inline-flex flex-wrap items-center gap-3">
           {skills?.length > 0 && (
             <div className="inline-flex flex-wrap items-center gap-2 text-xs text-primary-container/70 capitalize">
               {skills.map((lang, index) => (
@@ -51,6 +53,16 @@ export default function ProjectItems({
                 </span>
               ))}
             </div>
+          )}
+          {gh_url && (
+            <a
+              href={gh_url}
+              target="_blank"
+              rel="noreferrer"
+              className="px-3 py-1.5 bg-primary align-baseline text-sm text-white font-display font-semibold uppercase tracking-wide cursor-pointer border-l-2 hover:bg-primary transition-colors duration-300"
+            >
+              [see_repo]
+            </a>
           )}
         </footer>
       </div>

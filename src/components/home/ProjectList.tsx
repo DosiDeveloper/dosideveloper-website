@@ -11,6 +11,7 @@ interface Project {
   description: string;
   devarea: string;
   skills: string[];
+  gh_url?: string;
 }
 
 export default function ProjectList() {
@@ -21,10 +22,9 @@ export default function ProjectList() {
     const fetchProjects = async () => {
       const { data, error } = await supabase
         .from("post_metadata")
-        .select("name, description, skills, devarea, id")
+        .select("name, description, skills, devarea, id, gh_url")
         .limit(5)
         .order("created_at", { ascending: false });
-
       if (error || !data) {
         setHasError(true);
         return;
@@ -37,6 +37,7 @@ export default function ProjectList() {
           description: p.description ?? "",
           devarea: p.devarea ?? "",
           skills: (p.skills ?? "").split(",").filter(Boolean),
+          gh_url: p.gh_url ?? "",
         })),
       );
     };
@@ -110,6 +111,7 @@ export default function ProjectList() {
           skills={project.skills}
           dev_area={project.devarea}
           isLarge={index % 3 === 0}
+          gh_url={project.gh_url}
         />
       ))}
     </>

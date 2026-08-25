@@ -1,4 +1,4 @@
-﻿export type Json =
+export type Json =
   | string
   | number
   | boolean
@@ -34,6 +34,7 @@ export type Database = {
           content_post: string | null
           created_at: string | null
           description: string
+          gh_url: string | null
           id: string
           image: string | null
           name: string
@@ -43,6 +44,7 @@ export type Database = {
           content_post?: string | null
           created_at?: string | null
           description: string
+          gh_url?: string | null
           id?: string
           image?: string | null
           name: string
@@ -52,6 +54,7 @@ export type Database = {
           content_post?: string | null
           created_at?: string | null
           description?: string
+          gh_url?: string | null
           id?: string
           image?: string | null
           name?: string
@@ -156,6 +159,7 @@ export type Database = {
           created_at: string | null
           description: string | null
           devarea: string | null
+          gh_url: string | null
           id: string | null
           image: string | null
           name: string | null
