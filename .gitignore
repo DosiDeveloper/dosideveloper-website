@@ -40,3 +40,6 @@ env*.local
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# supabase cli local state
+.temp/
